@@ -10,3 +10,4 @@ twine==1.14.0
 
 pytest==6.2.4
 
+git+https://github.com/mmyros/bayes-window.git@master#egg=bayes-window

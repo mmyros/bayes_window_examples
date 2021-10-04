@@ -1,0 +1,17 @@
+image: python:latest
+
+
+services:
+  - mysql:5.7
+
+variables:
+  MYSQL_ROOT_PASSWORD: simple
+
+test:
+  script:
+    - pip install -r requirements.txt
+    - pwd
+    - ls
+    - tox
+    - coverage report -m
+  coverage: '/TOTAL.+ ([0-9]{1,3}%)/'

@@ -13,8 +13,8 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [ ]
 
-with open('requirements.txt') as f:
-    requirements += f.read().splitlines()
+#with open('requirements.txt') as f:
+#    requirements += f.read().splitlines()
 
 test_requirements = ['pytest>=3', ]
 

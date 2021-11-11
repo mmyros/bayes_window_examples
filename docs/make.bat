@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=bayes_window_examples
+set SPHINXPROJ=bayes_window
 
 if "%1" == "" goto help
 

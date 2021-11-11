@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = bayes_window_examples
+SPHINXPROJ    = bayes_window
 SOURCEDIR     = .
 BUILDDIR      = _build
 

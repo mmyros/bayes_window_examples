@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install Bayes Window examples, run this command in your terminal:
+To install Bayes Window, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install bayes_window_examples
+    $ pip install bayes_window
 
-This is the preferred method to install Bayes Window examples, as it will always install the most recent stable release.
+This is the preferred method to install Bayes Window, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for Bayes Window examples can be downloaded from the `Github repo`_.
+The sources for Bayes Window can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/mmyros/bayes_window_examples
+    $ git clone git://github.com/mmyros/bayes_window
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/mmyros/bayes_window_examples/tarball/master
+    $ curl -OJL https://github.com/mmyros/bayes_window/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/mmyros/bayes_window_examples
-.. _tarball: https://github.com/mmyros/bayes_window_examples/tarball/master
+.. _Github repo: https://github.com/mmyros/bayes_window
+.. _tarball: https://github.com/mmyros/bayes_window/tarball/master

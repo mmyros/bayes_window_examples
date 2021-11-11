@@ -1,5 +1,5 @@
-Welcome to Bayes Window examples's documentation!
-======================================
+Welcome to Bayes Window's documentation!
+========================================
 
 .. toctree::
    :maxdepth: 2
@@ -8,6 +8,14 @@ Welcome to Bayes Window examples's documentation!
    readme
    installation
    usage
+   example_notebooks/lfp_example/quick_lfp
+   example_notebooks/neurons_example/quickstart
+   example_notebooks/neurons_example/model_comparison
+   example_notebooks/neurons_example/monster
+   example_notebooks/radon_example/radon
+   example_notebooks/neurons_example/posteriors
+   #example_notebooks/neurons_example/detailed_workflow
+   #example_notebooks/motivation/metropolis
    modules
    contributing
    authors

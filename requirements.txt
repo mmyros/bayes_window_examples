@@ -20,5 +20,6 @@ sklearn
 inflection
 ipython
 elephant
+pymc3
 
 pytest==6.2.4

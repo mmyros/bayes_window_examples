@@ -12,7 +12,8 @@ numpyro
 bulwark
 xarray
 altair
-
+nbsphinx
+statsmodels
 pandas
 arviz
 sklearn

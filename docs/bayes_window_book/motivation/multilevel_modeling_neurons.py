@@ -7,11 +7,11 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.8.2
+#       jupytext_version: 1.11.5
 #   kernelspec:
-#     display_name: tf
+#     display_name: Python 3
 #     language: python
-#     name: tf
+#     name: jb1
 # ---
 
 # # Bayesian Methods for Multilevel Modeling of Neurons

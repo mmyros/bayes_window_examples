@@ -7,11 +7,11 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.8.2
+#       jupytext_version: 1.11.5
 #   kernelspec:
-#     display_name: tf
+#     display_name: Python 3
 #     language: python
-#     name: tf
+#     name: jb1
 # ---
 
 # + [markdown] slideshow={"slide_type": "slide"} hideCode=true hidePrompt=true
@@ -84,7 +84,7 @@
 #
 
 # + [markdown] slideshow={"slide_type": "fragment"} hideCode=true hidePrompt=true
-# ### We will work toward a partial pooling model with treatment
+# ## We will work toward a partial pooling model with treatment
 #
 #
 # $$ 

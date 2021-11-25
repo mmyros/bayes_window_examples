@@ -24,7 +24,7 @@ df = generate_spikes_stim_types(mouse_response_slope=3,
                                 dur=2, )
 
 
-# In[3]:
+# In[1]:
 
 
 

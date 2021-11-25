@@ -3,7 +3,7 @@
 
 # # LFP example
 
-# In[1]:
+# In[2]:
 
 
 import altair as alt
@@ -21,7 +21,7 @@ except Exception:
 # 
 # This is repeated for "stimulation" trials, but poisson rate is higher.
 
-# In[2]:
+# In[3]:
 
 
 # Draw some fake data:
@@ -32,13 +32,13 @@ df, df_monster, index_cols, _ = generate_fake_lfp(mouse_response_slope=15, n_tri
 # 
 # Higher-baseline mice tend to have smaller stim response:
 
-# In[3]:
+# In[4]:
 
 
 BayesWindow(df=df, y='Log power', treatment='stim', group='mouse').plot(x='mouse').facet(column='stim')
 
 
-# In[4]:
+# In[5]:
 
 
 BayesWindow(df=df, y='Log power', treatment='stim', group='mouse', detail='i_trial').data_box_detail().facet(
@@ -87,7 +87,7 @@ BayesWindow(df=df, y='Log power', treatment='stim', group='mouse', detail='i_tri
 # 
 # Above is the contents of `model_hier_stim_one_codition.py`, the function passed as argument in line 4 below.
 
-# In[5]:
+# In[6]:
 
 
 # Initialize:
@@ -100,7 +100,7 @@ window.fit(model=models.model_hierarchical, add_group_intercept=True,
 chart_power_difference = (window.chart + window.chart_posterior_kde).properties(title='Posterior')
 
 
-# In[6]:
+# In[7]:
 
 
 chart_power_difference
@@ -114,7 +114,7 @@ chart_power_difference
 # 
 # - Barplot comes directly from the data
 
-# In[7]:
+# In[8]:
 
 
 # TODO diff_y is missing from data_and posterior
@@ -139,28 +139,28 @@ window.chart
 
 # ANOVA does not pick up the effect of stim as significant:
 
-# In[8]:
+# In[9]:
 
 
 window = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
 window.fit_anova();
 
 
-# In[9]:
+# In[10]:
 
 
 window = LMERegression(df=df, y='Log power', treatment='stim')
 window.fit_anova();
 
 
-# In[10]:
+# In[11]:
 
 
 window = LMERegression(df=df, y='Power', treatment='stim', group='mouse')
 window.fit_anova();
 
 
-# In[11]:
+# In[12]:
 
 
 window = LMERegression(df=df, y='Power', treatment='stim')
@@ -169,7 +169,7 @@ window.fit_anova();
 
 # Including mouse as predictor helps, and we get no interaction:
 
-# In[12]:
+# In[13]:
 
 
 window.fit_anova(formula='Log_power ~ stim + mouse + mouse*stim');
@@ -177,13 +177,13 @@ window.fit_anova(formula='Log_power ~ stim + mouse + mouse*stim');
 
 # #### OLS ANOVA with heteroscedasticity correction
 
-# In[13]:
+# In[14]:
 
 
 window.fit_anova(formula='Power ~ stim + mouse ', robust="hc3");
 
 
-# In[14]:
+# In[15]:
 
 
 window.fit_anova(formula='Log_power ~ stim +mouse', robust="hc3");
@@ -191,7 +191,7 @@ window.fit_anova(formula='Log_power ~ stim +mouse', robust="hc3");
 
 # A linear mixed-effect model shows the effect of stim (slope) as significant. It includes intercepts of mouse, which also vary significantly:
 
-# In[15]:
+# In[16]:
 
 
 # Initialize:
@@ -199,7 +199,7 @@ window = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
 window.fit(add_data=False);
 
 
-# In[16]:
+# In[17]:
 
 
 chart_power_difference_lme = window.plot().properties(title='LME')
@@ -208,7 +208,7 @@ chart_power_difference_lme
 
 # ## Compare LME and Bayesian slopes side by side
 
-# In[17]:
+# In[18]:
 
 
 chart_power_difference | chart_power_difference_lme
@@ -217,7 +217,7 @@ chart_power_difference | chart_power_difference_lme
 # ## Inspect Bayesian result further
 # Let's take a look at the intercepts and compare them to levels of power in the original data:
 
-# In[18]:
+# In[19]:
 
 
 # Initialize:
@@ -231,7 +231,7 @@ chart_detail_and_intercepts = window.plot_intercepts(x='mouse')
 window.chart_posterior_intercept
 
 
-# In[19]:
+# In[20]:
 
 
 chart_detail_and_intercepts
@@ -239,7 +239,7 @@ chart_detail_and_intercepts
 
 # Our plotting backend's flexibility allows us to easily concatenate multiple charts in the same figures with the | operator:
 
-# In[20]:
+# In[21]:
 
 
 window.chart_posterior_intercept | chart_power_difference | chart_power_difference_lme
@@ -248,7 +248,7 @@ window.chart_posterior_intercept | chart_power_difference | chart_power_differen
 # ## Check for false-positives with null model
 # They sometimes appear with non-transformed data + "normal" model
 
-# In[21]:
+# In[22]:
 
 
 # Initialize:
@@ -270,7 +270,7 @@ chart_power_difference
 # 
 # GLM is more robust to no differences in the case of no effect:
 
-# In[22]:
+# In[23]:
 
 
 # Initialize:
@@ -287,7 +287,7 @@ window.plot(independent_axes=False,
 # ## Include all samples in each trial
 # The mean of every one of the 30 trials we drew for each mouse is a manifestation of the same underlying process that generates power for each mouse. Let's try to include all samples that come in each trial
 
-# In[23]:
+# In[24]:
 
 
 # NBVAL_SKIP
@@ -300,7 +300,7 @@ window.fit(model=models.model_hierarchical, add_group_intercept=True,
            do_make_change='subtract', dist_y='gamma');
 
 
-# In[24]:
+# In[25]:
 
 
 # NBVAL_SKIP
@@ -313,7 +313,7 @@ chart_power_difference_monster
 # 
 # Same with linear mixed model:
 
-# In[25]:
+# In[26]:
 
 
 # NBVAL_SKIP
@@ -325,7 +325,7 @@ chart_power_difference_monster_lme = window.plot().properties(title='LME')
 chart_power_difference_monster_lme
 
 
-# In[26]:
+# In[27]:
 
 
 # NBVAL_SKIP

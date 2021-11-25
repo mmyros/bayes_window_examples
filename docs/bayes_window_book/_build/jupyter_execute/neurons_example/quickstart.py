@@ -220,7 +220,7 @@ bw.fit(model=(models.model_hierarchical),
 bw.plot_model_quality()
 
 
-# In[20]:
+# In[18]:
 
 
 # Gamma GLM intercept only
@@ -240,14 +240,14 @@ bw.plot_model_quality()
 
 # ## LME fails
 
-# In[21]:
+# In[19]:
 
 
 bw = LMERegression(df=df, y='isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse', )
 bw.fit(add_data=False, add_group_intercept=True, add_group_slope=False)
 
 
-# In[22]:
+# In[20]:
 
 
 bw.chart.display()
@@ -255,14 +255,14 @@ bw.chart.display()
 "Proper faceting will work when data addition is implemented in fit_lme()"
 
 
-# In[23]:
+# In[21]:
 
 
 bw = LMERegression(df=df, y='isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse', )
 bw.fit(add_data=False, add_group_intercept=True, add_group_slope=True)
 
 
-# In[24]:
+# In[22]:
 
 
 bw.chart
@@ -270,7 +270,7 @@ bw.chart
 
 # Need nested design, but get singular matrix:
 
-# In[25]:
+# In[23]:
 
 
 bw = LMERegression(df=df, y='isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse', )

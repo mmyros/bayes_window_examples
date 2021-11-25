@@ -229,7 +229,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bayes_window.generative_models</span> <span class="kn">import</span> <span class="n">generate_fake_spikes</span>
 <span class="kn">from</span> <span class="nn">bayes_window.model_comparison</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span>
+<span class="kn">from</span> <span class="nn">bayes_window</span> <span class="kn">import</span> <span class="n">BayesWindow</span><span class="p">,</span> <span class="n">BayesRegression</span><span class="p">,</span> <span class="n">LMERegression</span><span class="p">,</span> <span class="n">BayesConditions</span>
 </pre></div>
 </div>
 </div>
@@ -250,8 +250,8 @@
 <h2>Bayesian<a class="headerlink" href="#bayesian" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span><span class="p">)</span>
-<span class="n">window</span><span class="o">.</span><span class="n">fit_slopes</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">model_hierarchical</span><span class="p">,</span> <span class="n">do_mean_over_trials</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">BayesRegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron&#39;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">model_hierarchical</span><span class="p">,</span> <span class="n">do_mean_over_trials</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
 <span class="n">window</span><span class="o">.</span><span class="n">explore_models</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -696,7 +696,7 @@
 <p>Simple one-way ANOVA:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">fit_anova</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#window.fit_anova()</span>
 </pre></div>
 </div>
 </div>
@@ -717,8 +717,9 @@ Residual     0.0  14.0   NaN     NaN
 <h2>Linear mixed effects model<a class="headerlink" href="#linear-mixed-effects-model" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">BayesWindow</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">)</span>
-<span class="n">window</span><span class="o">.</span><span class="n">fit_lme</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">LMERegression</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;stim&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="s1">&#39;neuron_x_mouse&#39;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">fit_anova</span><span class="p">()</span>
 <span class="n">window</span><span class="o">.</span><span class="n">posterior</span>
 </pre></div>
 </div>
@@ -1107,16 +1108,16 @@ Group Var                   0.000    0.002
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jb1"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "jb1",
+            kernelName: "python",
             path: "./neurons_example"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jb1'</script>
+    <script>kernelName = 'python'</script>
 
               </div>
               

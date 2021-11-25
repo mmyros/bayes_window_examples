@@ -6,7 +6,7 @@
 # In[1]:
 
 
-from bayes_window import models, BayesWindow
+from bayes_window import models, BayesWindow, LMERegression
 from bayes_window.generative_models import generate_fake_spikes, generate_fake_lfp
 import numpy as np
 
@@ -24,8 +24,8 @@ df, df_monster, index_cols, _ = generate_fake_lfp(mouse_response_slope=8,
 # In[3]:
 
 
-bw = BayesWindow(df, y='Log power', treatment='stim', group='mouse')
-bw.fit_lme(add_data=False)
+bw = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
+bw.fit(add_data=False)
 bw.plot().display()
 
 
@@ -37,9 +37,9 @@ bw.posterior
 # In[4]:
 
 
-bw = BayesWindow(df, y='Log power', treatment='stim', group='mouse')
+bw = LMERegression(df=df, y='Log power', treatment='stim', group='mouse')
 try:
-    bw.fit_lme(add_data=True, do_make_change='subtract');
+    bw.fit(add_data=True, do_make_change='subtract');
     bw.plot()    
 except TypeError:
     print('\nNot implemented')
@@ -62,8 +62,8 @@ df['log_isi']=np.log10(df['isi'])
 # In[6]:
 
 
-bw = BayesWindow(df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
-bw.fit_lme(add_data=False,add_group_intercept=True, add_group_slope=False);
+bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
+bw.fit(add_data=False,add_group_intercept=True, add_group_slope=False);
 
 
 # In[7]:
@@ -84,8 +84,8 @@ alt.layer(*bw.charts)
 # In[9]:
 
 
-bw = BayesWindow(df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
-bw.fit_lme(add_data=False,add_group_intercept=True, add_group_slope=True)
+bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
+bw.fit(add_data=False,add_group_intercept=True, add_group_slope=True)
 
 
 # In[10]:
@@ -105,7 +105,7 @@ bw.regression_charts(x='neuron_x_mouse:O').display()
 # In[12]:
 
 
-bw.fit_lme(formula='log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)')
+bw.fit(formula='log_isi ~ (1|mouse) + C(stim| neuron_x_mouse)')
 
 
 # In[13]:
@@ -119,9 +119,9 @@ bw.regression_charts(x='neuron_x_mouse:O').display()
 # In[14]:
 
 
-bw = BayesWindow(df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
+bw = LMERegression(df=df, y='log_isi', treatment='stim', condition=['neuron_x_mouse'], group='mouse',)
 try:
-    bw.fit_lme(add_data=False,add_group_intercept=True, add_group_slope=True, add_nested_group=True)
+    bw.fit(add_data=False,add_group_intercept=True, add_group_slope=True, add_nested_group=True)
 except Exception as e:
     print(e)
 

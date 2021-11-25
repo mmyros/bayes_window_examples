@@ -29,7 +29,7 @@ BayesWindow(df, y='Log power', treatment='stim', group='mouse', detail='i_trial'
 
 # ## ROC and CM, original scale
 
-# In[ ]:
+# In[3]:
 
 
 # NBVAL_SKIP
@@ -45,7 +45,7 @@ res = model_comparison.run_conditions(true_slopes=np.hstack([np.zeros(15),
 
 # ### Confusion matrix
 
-# In[ ]:
+# In[4]:
 
 
 # NBVAL_SKIP
@@ -56,7 +56,7 @@ model_comparison.plot_confusion(
 
 # ### ROC curve
 
-# In[ ]:
+# In[5]:
 
 
 df = model_comparison.make_roc_auc(res, binary=False, groups=('method', 'y', 'n_trials'))
@@ -69,7 +69,7 @@ roc.facet(column='n_trials', row='y').properties()
 
 # ## Log-transformed
 
-# In[ ]:
+# In[6]:
 
 
 reslog = model_comparison.run_conditions(true_slopes=np.hstack([np.zeros(15),
@@ -84,7 +84,7 @@ reslog = model_comparison.run_conditions(true_slopes=np.hstack([np.zeros(15),
 
 # ### Confusion matrix
 
-# In[ ]:
+# In[7]:
 
 
 model_comparison.plot_confusion(
@@ -95,7 +95,7 @@ model_comparison.plot_confusion(
 
 # ### ROC curve
 
-# In[ ]:
+# In[8]:
 
 
 df = model_comparison.make_roc_auc(reslog, binary=False, groups=('method', 'y', 'n_trials'))

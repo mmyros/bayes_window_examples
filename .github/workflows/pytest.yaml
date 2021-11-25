@@ -39,16 +39,16 @@ jobs:
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Install Tox and any other packages
       run: pip install tox 
-    - name: Run pytest
-      run: |
-         pytest --basetemp=docs  \
-          --nbval-lax --current-env \
-          --ignore=docs/example_notebooks/lfp_example/lfp_roc.ipynb \
-          --ignore=docs/example_notebooks/neurons_example/monster.ipynb  \
-          --ignore=docs/example_notebooks/neurons_example/model_comparison.ipynb \
-          --ignore=docs/example_notebooks/debug/*.ipynb \
-          --ignore=docs/example_notebooks/debug/ \
-          --ignore=bayes_window/cli.py \
-          --ignore=docs/example_notebooks/motivation/ \
-          --ignore=docs/_build \
-          --ignore=tests/
+#    - name: Run pytest
+#      run: |
+         #pytest --basetemp=docs  \
+         # --nbval-lax --current-env \
+         # --ignore=docs/example_notebooks/lfp_example/lfp_roc.ipynb \
+         # --ignore=docs/example_notebooks/neurons_example/monster.ipynb  \
+         # --ignore=docs/example_notebooks/neurons_example/model_comparison.ipynb \
+         # --ignore=docs/example_notebooks/debug/*.ipynb \
+         # --ignore=docs/example_notebooks/debug/ \
+         # --ignore=bayes_window/cli.py \
+         # --ignore=docs/example_notebooks/motivation/ \
+         # --ignore=docs/_build \
+         # --ignore=tests/

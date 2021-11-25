@@ -24,23 +24,23 @@ df = generate_spikes_stim_types(mouse_response_slope=3,
                                 dur=2, )
 
 
-# In[1]:
+# In[3]:
 
 
 
-window = BayesRegression(df, y='isi', treatment='stim', condition=['stim_strength','neuron_x_mouse'],
+window = BayesRegression(df=df, y='isi', treatment='stim', condition=['stim_strength','neuron_x_mouse'],
                               group='mouse')
 window.fit(model=models.model_hierarchical)
 
 
-# In[45]:
+# In[4]:
 
 
 window.plot(x='stim_strength',column='mouse',independent_axes=False,row='neuron_x_mouse')
 # window.chart_posterior_hdi
 
 
-# In[19]:
+# In[5]:
 
 
 window.chart

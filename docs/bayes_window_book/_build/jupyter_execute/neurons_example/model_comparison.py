@@ -9,7 +9,7 @@
 
 from bayes_window.generative_models import generate_fake_spikes
 from bayes_window.model_comparison import *
-from bayes_window import BayesWindow
+from bayes_window import BayesWindow, BayesRegression, LMERegression, BayesConditions
 
 
 # In[2]:
@@ -28,8 +28,8 @@ df, df_monster, index_cols, firing_rates = generate_fake_spikes(n_trials=140,
 # In[3]:
 
 
-window = BayesWindow(df, y='isi', treatment='stim', group='mouse', condition='neuron')
-window.fit_slopes(model=models.model_hierarchical, do_mean_over_trials=True,)
+window = BayesRegression(df=df, y='isi', treatment='stim', group='mouse', condition='neuron')
+window.fit(model=models.model_hierarchical, do_mean_over_trials=True,)
 window.explore_models()
 
 
@@ -38,7 +38,7 @@ window.explore_models()
 # In[4]:
 
 
-window.fit_anova()
+#window.fit_anova()
 
 
 # ## Linear mixed effects model
@@ -46,8 +46,9 @@ window.fit_anova()
 # In[7]:
 
 
-window = BayesWindow(df, y='isi', treatment='stim', group='mouse', condition='neuron_x_mouse')
-window.fit_lme()
+window = LMERegression(df=df, y='isi', treatment='stim', group='mouse', condition='neuron_x_mouse')
+window.fit()
+window.fit_anova()
 window.posterior
 
 

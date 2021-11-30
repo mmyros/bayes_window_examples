@@ -10,6 +10,7 @@ chapters:
 - file: lfp_example/quick_lfp
 - file: lfp_example/lfp_stim_strength
 - file: lfp_example/lfp_roc
+- file: lfp_example/lfp_slope_vs_means
 - file: neurons_example/quickstart
 - file: neurons_example/posteriors
 - file: neurons_example/stim_strength

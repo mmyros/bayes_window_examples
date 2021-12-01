@@ -15,7 +15,7 @@
 # 
 # - numpyro fibrosis dataset http://num.pyro.ai/en/stable/tutorials/bayesian_hierarchical_linear_regression.html
 
-# In[1]:
+# In[7]:
 
 
 import altair as alt
@@ -23,20 +23,20 @@ try:
     alt.renderers.enable('altair_saver', fmts=['png'])
 except Exception:
     pass
-from bayes_window import BayesWindow
-from bayes_window.utils import load_radon
+from bayes_window import BayesWindow, BayesConditions, LMERegression, BayesRegression
+from utils import load_radon
 df = load_radon()
 
 df
 
 
-# In[2]:
+# In[3]:
 
 
 df.set_index(['county','floor']).hist(bins=100);
 
 
-# In[3]:
+# In[4]:
 
 
 window=BayesWindow(df.reset_index(), y='radon', treatment='floor',group='county')
@@ -44,7 +44,7 @@ window=BayesWindow(df.reset_index(), y='radon', treatment='floor',group='county'
 
 # ## Plot data
 
-# In[4]:
+# In[5]:
 
 
 window.plot(x='county').facet(row='floor')
@@ -52,25 +52,25 @@ window.plot(x='county').facet(row='floor')
 
 # ## Fit LME
 
-# In[5]:
+# In[8]:
 
 
-window.fit_lme()#formula='radon ~ floor + ( 1 | county)')
+lme=LMERegression(window)#formula='radon ~ floor + ( 1 | county)')
 
 window.plot()
 
 
 # ## Fit Bayesian hierarchical with and without county-specific intercept
 
-# In[6]:
+# In[10]:
 
 
-window1=BayesWindow(df.reset_index(), y='radon', treatment='floor',group='county')
-window1.fit_slopes(add_group_intercept=True);
+window1=BayesRegression(df=df.reset_index(), y='radon', treatment='floor',group='county')
+window1.fit(add_group_intercept=True);
 window1.plot()
 
 
-# In[7]:
+# In[11]:
 
 
 window1.plot(x=':O')
@@ -78,21 +78,21 @@ window1.plot(x=':O')
 
 # ### Inspect intercepts (horizontal ticks)
 
-# In[8]:
+# In[12]:
 
 
 window1.plot_intercepts()
 
 
-# In[9]:
+# In[13]:
 
 
-window2=BayesWindow(df.reset_index(), y='radon', treatment='floor',group='county')
-window2.fit_slopes(add_group_intercept=False, add_group_slope=False, do_make_change='subtract');
+window2=BayesRegression(df=df.reset_index(), y='radon', treatment='floor',group='county')
+window2.fit(add_group_intercept=False, add_group_slope=False, do_make_change='subtract');
 window2.plot()
 
 
-# In[10]:
+# In[14]:
 
 
 (window.plot().properties(title='LME')|
@@ -102,7 +102,7 @@ window2.plot()
 
 # ## Compare the two models
 
-# In[11]:
+# In[15]:
 
 
 import arviz as az
@@ -118,7 +118,7 @@ az.plot_forest(data=list(datasets.values()), model_names=list(datasets.keys()),
 
 # For leave-one-out, let's remove any counties that did not contain both floors. This drops about 250 rows
 
-# In[12]:
+# In[16]:
 
 
 import pandas as pd
@@ -132,7 +132,7 @@ df_clean = pd.concat([ddf for i, ddf in df.groupby(['county'])
 df_clean
 
 
-# In[13]:
+# In[17]:
 
 
 window1.data=df_clean
@@ -141,7 +141,7 @@ window1.explore_models()
 
 # It looks like using including intercept actually hurts leave-one-out posterior predictive. Actually, so does including floor in the model. To bring this home, let's only use the models that did not have a warning above:
 
-# In[14]:
+# In[ ]:
 
 
 from bayes_window.model_comparison import compare_models

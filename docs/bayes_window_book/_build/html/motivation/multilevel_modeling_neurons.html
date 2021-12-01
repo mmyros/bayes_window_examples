@@ -42,8 +42,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -91,19 +89,6 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks.html">
-   Content with notebooks
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -319,11 +304,6 @@ This means that each neuron/house has one measurement. The estimation of firing 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 <span class="n">RANDOM_SEED</span> <span class="o">=</span> <span class="mi">8924</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">286</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING (theano.configdefaults): install mkl with `conda install mkl-service`: No module named &#39;mkl&#39;
 </pre></div>
 </div>
 </div>
@@ -758,7 +738,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -805,8 +787,6 @@ NUTS: [sigma, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -821,9 +801,7 @@ NUTS: [sigma, a]
       <td>1.42</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5272.63</td>
-      <td>5272.63</td>
-      <td>5263.06</td>
+      <td>5266.08</td>
       <td>2963.49</td>
       <td>1.0</td>
     </tr>
@@ -835,9 +813,7 @@ NUTS: [sigma, a]
       <td>0.90</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5808.35</td>
-      <td>5806.86</td>
-      <td>5859.37</td>
+      <td>5856.73</td>
       <td>3357.46</td>
       <td>1.0</td>
     </tr>
@@ -849,9 +825,7 @@ NUTS: [sigma, a]
       <td>0.83</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5372.30</td>
-      <td>5366.82</td>
-      <td>5333.90</td>
+      <td>5335.04</td>
       <td>2973.88</td>
       <td>1.0</td>
     </tr>
@@ -871,9 +845,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -920,8 +900,6 @@ NUTS: [sigma, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -936,24 +914,20 @@ NUTS: [sigma, a]
       <td>1.42</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4509.37</td>
-      <td>4509.37</td>
-      <td>4496.12</td>
-      <td>2861.20</td>
+      <td>4702.01</td>
+      <td>2808.27</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>a[1]</th>
-      <td>0.78</td>
+      <td>0.77</td>
       <td>0.06</td>
       <td>0.65</td>
       <td>0.90</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4696.39</td>
-      <td>4688.65</td>
-      <td>4666.29</td>
-      <td>2308.57</td>
+      <td>4962.17</td>
+      <td>2066.08</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -964,10 +938,8 @@ NUTS: [sigma, a]
       <td>0.83</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4345.94</td>
-      <td>4345.94</td>
-      <td>4356.59</td>
-      <td>2786.44</td>
+      <td>4176.84</td>
+      <td>2823.50</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1004,7 +976,7 @@ NUTS: [sigma, a]
         }
     </style>
   <progress value='4000' class='' max='4000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [4000/4000 00:14<00:00]
+  100.00% [4000/4000 00:03<00:00]
 </div>
 </div></div>
 </div>
@@ -1015,12 +987,12 @@ NUTS: [sigma, a]
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">no_stim</span><span class="p">,</span> <span class="n">log_firingrate</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observations&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">firingrate_stim</span><span class="p">,</span> <span class="n">firingrate_no_stim</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. distrib. of firingrate levels&quot;</span><span class="p">}</span>
 <span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
     <span class="n">pooled_trace</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> 
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Exp. mean HPD&quot;</span><span class="p">}</span>
@@ -1035,13 +1007,7 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (2). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-</pre></div>
-</div>
-<img alt="../_images/multilevel_modeling_neurons_34_1.png" src="../_images/multilevel_modeling_neurons_34_1.png" />
+<img alt="../_images/multilevel_modeling_neurons_34_0.png" src="../_images/multilevel_modeling_neurons_34_0.png" />
 </div>
 </div>
 <p>The 94% interval of the expected value is very narrow, and even narrower for stim measurements, meaning that the model is slightly more confident about these observations. The sampling distribution of individual firingrate levels is much wider. We can infer that no_stim level does account for some of the variation in firingrate levels. We can see however that the model underestimates the dispersion in firingrate levels across neurons – lots of them lie outside the light orange prediction envelope. So this model is a good start but we can’t stop there.</p>
@@ -1091,9 +1057,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1141,8 +1113,8 @@ NUTS: [sigma, a]
 <span class="n">unpooled_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                         <span class="p">{</span>
                             <span class="s2">&quot;stim&quot;</span><span class="p">:</span> <span class="n">a_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> 
-                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                            <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                         <span class="p">},</span> 
                         <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                         <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
@@ -1150,20 +1122,12 @@ NUTS: [sigma, a]
 <span class="n">unpooled_no_stim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
                     <span class="p">{</span>
                         <span class="s2">&quot;no_stim&quot;</span><span class="p">:</span> <span class="n">a_no_stim_unpooled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+                        <span class="s2">&quot;low&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+                        <span class="s2">&quot;high&quot;</span><span class="p">:</span> <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">a_no_stim_unpooled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
                     <span class="p">},</span> 
                     <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> 
                     <span class="n">columns</span><span class="o">=</span><span class="n">mn_mice</span>
                 <span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;no_stim&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
 </pre></div>
 </div>
 </div>
@@ -1183,7 +1147,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_43_0.png" src="../_images/multilevel_modeling_neurons_43_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-24-8917f1fd6ec1&gt;:9: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_43_1.png" src="../_images/multilevel_modeling_neurons_43_1.png" />
 </div>
 </div>
 <p>There seems to be more dispersion in firingrate levels for no_stim measurements than for stim ones. Moreover, as we saw in the forest plot, no_stim estimates are globally more uncertain, especially in some mice. We speculated that this is due to smaller sample sizes in the data, but let’s verify it!</p>
@@ -1237,7 +1205,11 @@ NUTS: [sigma, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_47_0.png" src="../_images/multilevel_modeling_neurons_47_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-26-757594fd1ada&gt;:25: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_47_1.png" src="../_images/multilevel_modeling_neurons_47_1.png" />
 </div>
 </div>
 <p>Neither of these models are satisfactory:</p>
@@ -1301,9 +1273,15 @@ NUTS: [sigma, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1321,10 +1299,12 @@ NUTS: [sigma, a_mouse, sigma_a, a]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:05<00:00 Sampling 4 chains, 0 divergences]
 </div>
 </div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 6 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 </div>
@@ -1349,9 +1329,15 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, a_mouse]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, a_mouse]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1369,12 +1355,12 @@ NUTS: [sigma, a_mouse]
         }
     </style>
   <progress value='12000' class='' max='12000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [12000/12000 00:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [12000/12000 00:04<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 7 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 2_000 tune and 1_000 draw iterations (8_000 + 4_000 draws total) took 5 seconds.
 </pre></div>
 </div>
-<img alt="../_images/multilevel_modeling_neurons_54_3.svg" src="../_images/multilevel_modeling_neurons_54_3.svg" /></div>
+<img alt="../_images/multilevel_modeling_neurons_54_6.svg" src="../_images/multilevel_modeling_neurons_54_6.svg" /></div>
 </div>
 <p>Now let’s compare both models’ estimates for all 85 mice. We’ll plot the estimates against each mouse’s sample size, to let you see more clearly what hierarchical models bring to the table:</p>
 <div class="cell tag_hide-input docutils container">
@@ -1399,8 +1385,8 @@ NUTS: [sigma, a_mouse]
     <span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
         <span class="n">N_mouse</span><span class="p">,</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
-        <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> 
+        <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">trace</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">],</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">N_mouse</span><span class="p">,</span> <span class="n">trace</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -1416,10 +1402,8 @@ NUTS: [sigma, a_mouse]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-30-898c5d84cc09&gt;:33: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_56_1.png" src="../_images/multilevel_modeling_neurons_56_1.png" />
@@ -1479,9 +1463,15 @@ NUTS: [sigma, a_mouse]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, a_mouse, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, a_mouse, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1563,8 +1553,6 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -1579,9 +1567,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>1.59</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2264.20</td>
-      <td>2264.20</td>
-      <td>2258.64</td>
+      <td>2258.17</td>
       <td>2569.27</td>
       <td>1.00</td>
     </tr>
@@ -1593,9 +1579,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.41</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1248.56</td>
-      <td>1248.56</td>
-      <td>1213.04</td>
+      <td>1212.96</td>
       <td>1615.95</td>
       <td>1.01</td>
     </tr>
@@ -1607,9 +1591,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>-0.54</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>3335.23</td>
-      <td>3335.23</td>
-      <td>3303.54</td>
+      <td>3302.85</td>
       <td>2909.08</td>
       <td>1.00</td>
     </tr>
@@ -1621,9 +1603,7 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
       <td>0.76</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4975.12</td>
-      <td>4953.96</td>
-      <td>5015.64</td>
+      <td>5015.66</td>
       <td>2859.70</td>
       <td>1.00</td>
     </tr>
@@ -1699,7 +1679,11 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/multilevel_modeling_neurons_68_0.png" src="../_images/multilevel_modeling_neurons_68_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-37-42bab39d02e7&gt;:35: UserWarning: This figure was using constrained_layout, but that is incompatible with subplots_adjust and/or tight_layout; disabling constrained_layout.
+  plt.tight_layout();
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_68_1.png" src="../_images/multilevel_modeling_neurons_68_1.png" />
 </div>
 </div>
 <p>Here we clearly see the notion that partial-pooling is a compromise between no pooling and complete pooling, as its mean estimates are usually between the other models’ estimates. And interestingly, the bigger (smaller) the sample size in a given mouse, the closer the partial-pooling estimates are to the no-pooling (complete-pooling) estimates.</p>
@@ -1814,9 +1798,15 @@ NUTS: [sigma, b, a_mouse, sigma_a, a]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -1834,10 +1824,12 @@ NUTS: [sigma, zb_mouse, za_mouse, sigma_b, b, sigma_a, a]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 01:39<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 01:28<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 100 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 89 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 </div>
@@ -1900,8 +1892,8 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/plots/plot_utils.py:563: UserWarning: rcParams[&#39;plot.max_subplots&#39;] (40) is smaller than the number of variables to plot (2013) in plot_posterior, generating only 40 plots
-  UserWarning,
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/arviz/plots/plot_utils.py:490: UserWarning: rcParams[&#39;plot.max_subplots&#39;] (40) is smaller than the number of variables to plot (2013) in plot_posterior, generating only 40 plots
+  warnings.warn(
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_81_1.png" src="../_images/multilevel_modeling_neurons_81_1.png" />
@@ -1999,9 +1991,15 @@ y\sim Normal(\firingrate, \sigma)
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, z, b, a, packed_chol]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, z, b, a, packed_chol]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2019,13 +2017,15 @@ NUTS: [sigma, z, b, a, packed_chol]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 03:22<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 03:36<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 203 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 218 seconds.
 </pre></div>
 </div>
-<img alt="../_images/multilevel_modeling_neurons_87_3.png" src="../_images/multilevel_modeling_neurons_87_3.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
+</pre></div>
+</div>
+<img alt="../_images/multilevel_modeling_neurons_87_7.png" src="../_images/multilevel_modeling_neurons_87_7.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -2206,9 +2206,15 @@ The number of effective samples is smaller than 25% for some parameters.
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, za_mouse, sigma_a, g]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, za_mouse, sigma_a, g]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2226,9 +2232,9 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
         }
     </style>
   <progress value='28000' class='' max='28000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [28000/28000 00:46<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [28000/28000 00:48<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 48 seconds.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 6_000 tune and 1_000 draw iterations (24_000 + 4_000 draws total) took 50 seconds.
 </pre></div>
 </div>
 </div>
@@ -2248,7 +2254,7 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean intercept&quot;</span>
 <span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">plot_hpd</span><span class="p">(</span>
+<span class="n">az</span><span class="o">.</span><span class="n">plot_hdi</span><span class="p">(</span>
     <span class="n">u</span><span class="p">,</span> 
     <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
     <span class="n">fill_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Mean intercept HPD&quot;</span><span class="p">}</span>
@@ -2257,8 +2263,8 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">avg_a_mouse</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean mouse-intercept&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ui</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
     <span class="n">u</span><span class="p">,</span> 
-    <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">],</span> 
-    <span class="n">az</span><span class="o">.</span><span class="n">hpd</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">az</span><span class="o">.</span><span class="n">hdi</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;a_mouse&quot;</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ui</span><span class="p">,</span> <span class="n">ui</span><span class="p">],</span> <span class="p">[</span><span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
 
@@ -2268,15 +2274,7 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/stats/stats.py:338: UserWarning: hpd will be deprecated Please replace hdi
-  warnings.warn((&quot;hpd will be deprecated &quot; &quot;Please replace hdi&quot;),)
-/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (85). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
-</pre></div>
-</div>
-<img alt="../_images/multilevel_modeling_neurons_100_1.png" src="../_images/multilevel_modeling_neurons_100_1.png" />
+<img alt="../_images/multilevel_modeling_neurons_100_0.png" src="../_images/multilevel_modeling_neurons_100_0.png" />
 </div>
 </div>
 <p>Velocity is indeed much associated with baseline firingrate levels in each mouse. The graph above shows the average relationship and its uncertainty: the baseline firingrate level in an average mouse as a function of velocity, as well as the 94% HPD of this firingrate level (grey line and envelope). The blue points and orange bars represent the relationship between baseline firingrate and velocity, but now for each mouse. As you see, the uncertainty is bigger now, because it adds on top of the average uncertainty – each mouse has its idyosyncracies after all.</p>
@@ -2343,9 +2341,15 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, b, za_mouse, sigma_a, g]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing NUTS using jitter+adapt_diag...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocess sampling (4 chains in 4 jobs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NUTS: [sigma, b, za_mouse, sigma_a, g]
 </pre></div>
 </div>
 <div class="output text_html">
@@ -2363,10 +2367,12 @@ NUTS: [sigma, b, za_mouse, sigma_a, g]
         }
     </style>
   <progress value='36000' class='' max='36000' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [36000/36000 01:06<00:00 Sampling 4 chains, 0 divergences]
+  100.00% [36000/36000 01:13<00:00 Sampling 4 chains, 0 divergences]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 8_000 tune and 1_000 draw iterations (32_000 + 4_000 draws total) took 68 seconds.
-The number of effective samples is smaller than 25% for some parameters.
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 4 chains for 8_000 tune and 1_000 draw iterations (32_000 + 4_000 draws total) took 76 seconds.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of effective samples is smaller than 25% for some parameters.
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2393,8 +2399,6 @@ The number of effective samples is smaller than 25% for some parameters.
       <th>hdi_97%</th>
       <th>mcse_mean</th>
       <th>mcse_sd</th>
-      <th>ess_mean</th>
-      <th>ess_sd</th>
       <th>ess_bulk</th>
       <th>ess_tail</th>
       <th>r_hat</th>
@@ -2409,9 +2413,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>1.52</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1659.49</td>
-      <td>1652.00</td>
-      <td>1663.20</td>
+      <td>1663.09</td>
       <td>2439.39</td>
       <td>1.0</td>
     </tr>
@@ -2423,9 +2425,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>0.85</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>2506.83</td>
-      <td>2506.83</td>
-      <td>2533.21</td>
+      <td>2532.97</td>
       <td>3031.95</td>
       <td>1.0</td>
     </tr>
@@ -2437,9 +2437,7 @@ The number of effective samples is smaller than 25% for some parameters.
       <td>0.76</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1860.56</td>
-      <td>1860.56</td>
-      <td>1861.10</td>
+      <td>1861.01</td>
       <td>2578.32</td>
       <td>1.0</td>
     </tr>
@@ -2526,8 +2524,8 @@ The number of effective samples is smaller than 25% for some parameters.
   <progress value='4000' class='' max='4000' style='width:300px; height:20px; vertical-align: middle;'></progress>
   100.00% [4000/4000 00:05<00:00]
 </div>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/tf/lib/python3.6/site-packages/arviz/data/base.py:146: UserWarning: More chains (4000) than draws (919). Passed array should have shape (chains, draws, *shape)
-  UserWarning,
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/m/anaconda3/envs/dj/lib/python3.8/site-packages/arviz/data/base.py:169: UserWarning: More chains (4000) than draws (919). Passed array should have shape (chains, draws, *shape)
+  warnings.warn(
 </pre></div>
 </div>
 <img alt="../_images/multilevel_modeling_neurons_111_2.png" src="../_images/multilevel_modeling_neurons_111_2.png" />
@@ -2562,16 +2560,16 @@ The number of effective samples is smaller than 25% for some parameters.
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "pycharm-d5912792"
         },
         kernelOptions: {
-            kernelName: "python",
+            kernelName: "pycharm-d5912792",
             path: "./motivation"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python'</script>
+    <script>kernelName = 'pycharm-d5912792'</script>
 
               </div>
               

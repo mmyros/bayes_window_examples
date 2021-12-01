@@ -343,13 +343,13 @@ power_stim, power_no_stim = ppc[:, 1], ppc[:, 0] # we know that no_stim=0/1 at t
 
 plt.scatter(no_stim, log_power, label="Observations", alpha=0.4)
 
-az.plot_hpd(
+az.plot_hdi(
     [0, 1], 
     np.asarray([power_stim, power_no_stim]).T, 
     fill_kwargs={"alpha": 0.2, "label": "Exp. distrib. of power levels"},
     show=False
 )
-az.plot_hpd(
+az.plot_hdi(
     [0, 1], 
     pooled_trace["a"], 
     fill_kwargs={"alpha": 0.5, "label": "Exp. mean HPD"},
@@ -419,8 +419,8 @@ a_stim_unpooled, a_no_stim_unpooled = unpooled_trace["a"][:, :, 0], unpooled_tra
 unpooled_stim = pd.DataFrame.from_dict(
                         {
                             "stim": a_stim_unpooled.mean(0), 
-                            "low": az.hpd(a_stim_unpooled)[:, 0], 
-                            "high": az.hpd(a_stim_unpooled)[:, 1]
+                            "low": az.hdi(a_stim_unpooled)[:, 0], 
+                            "high": az.hdi(a_stim_unpooled)[:, 1]
                         }, 
                         orient="index", 
                         columns=mn_mice
@@ -428,8 +428,8 @@ unpooled_stim = pd.DataFrame.from_dict(
 unpooled_no_stim = pd.DataFrame.from_dict(
                     {
                         "no_stim": a_no_stim_unpooled.mean(0),
-                        "low": az.hpd(a_no_stim_unpooled)[:, 0], 
-                        "high": az.hpd(a_no_stim_unpooled)[:, 1]
+                        "low": az.hdi(a_no_stim_unpooled)[:, 0], 
+                        "high": az.hdi(a_no_stim_unpooled)[:, 1]
                     }, 
                     orient="index", 
                     columns=mn_mice
@@ -614,8 +614,8 @@ for ax, trace, level in zip(
     )
     for n, l, h in zip(
         N_mouse, 
-        az.hpd(trace)[:, 0], 
-        az.hpd(trace)[:, 1]
+        az.hdi(trace)[:, 0], 
+        az.hdi(trace)[:, 1]
     ):
         ax.plot([n, n], [l, h], alpha=0.5, c="orange")
     ax.scatter(N_mouse, trace.mean(0), alpha=0.8)

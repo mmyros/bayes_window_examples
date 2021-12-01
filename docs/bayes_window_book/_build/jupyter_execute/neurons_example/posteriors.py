@@ -10,7 +10,7 @@
 from importlib import reload
 
 from bayes_window import visualization
-from bayes_window import workflow, models
+from bayes_window import workflow, models, BayesWindow, BayesConditions, BayesRegression
 from bayes_window.generative_models import generate_fake_spikes
 
 
@@ -40,99 +40,70 @@ bw.plot(x='stim').facet('neuron')
 # In[4]:
 
 
-bw.plot_posteriors_no_slope()
+bw.plot()
 
-
-# This is stil fishy: why vertical lines? all sources of variance should be accounted for
 
 # In[5]:
 
 
-bw.plot_posteriors_no_slope(x='stim', detail='neuron', color='mouse:N')
+bw.plot(x='stim', detail='neuron', color='mouse:N')
 
 
-# It's because of trial, look:
+# Is this bc chart_p and chart_d traded places?
 
 # In[6]:
 
 
-bw.plot_posteriors_no_slope(x='stim', color='neuron:N')
-bw.facet(column='mouse')
+bw=BayesConditions(df=df,y='isi',treatment='stim', condition='neuron', group='mouse')
 
+bw.fit(model=models.model_single, );
+
+
+# TODO data is fine, posterior is not
+# 
+# TODO Need saner facet call
 
 # In[7]:
 
 
-bw.detail='i_trial'
-bw.plot_posteriors_no_slope(x='stim', color='neuron:N')
+bw.plot(x='stim:O',color='neuron:N',independent_axes=False,add_data=True)#.display()
+BayesWindow.facet(bw, column='mouse')
 
-
-#  And this default is thus fishy,too
 
 # In[8]:
 
 
-bw.facet(column='mouse',height=80,width=80)
+df.neuron=df.neuron.astype(int)
+bw=BayesConditions(df=df,y='isi',treatment='stim', condition='neuron', group='mouse')
 
+bw.fit(model=models.model_single, )
 
-# TODO posterior facets dont work
+bw.plot(x='stim:O',independent_axes=False,add_data=True);
 
-# Is this bc chart_p and chart_d traded places?
 
 # In[9]:
-
-
-reload(workflow)
-reload(visualization)
-bw=workflow.BayesWindow(df,y='isi',treatment='stim', condition='neuron', group='mouse')
-
-bw.fit_conditions(model=models.model_single, )
-
-
-# TODO data is fine, posterior is not
-
-# In[10]:
-
-
-bw.plot_posteriors_no_slope(x='stim:O',color='neuron:N',independent_axes=False,add_data=True)#.display()
-bw.facet(column='mouse')
-
-
-# In[11]:
-
-
-df.neuron=df.neuron.astype(int)
-bw=workflow.BayesWindow(df,y='isi',treatment='stim', condition='neuron', group='mouse')
-
-bw.fit_conditions(model=models.model_single, )
-
-bw.plot_posteriors_no_slope(x='stim:O',independent_axes=False,add_data=True);
-
-
-# In[12]:
 
 
 #builtin facet
 bw.chart.properties(height=60).facet(column='neuron', row='mouse').display()
 
 
-# In[13]:
+# In[10]:
 
 
-# smart facet
-bw.facet(column='neuron', row='mouse',height=60).display()
+# smart facet TODO
+
+BayesWindow.facet(bw,column='neuron', row='mouse',height=60).display()
 
 
-# In[14]:
+# In[11]:
 
 
 #Full: add_data=True, independent_axes=True
-reload(workflow)
-reload(visualization)
-bw = workflow.BayesWindow(df, y='isi', treatment='stim', condition='neuron', group='mouse')
-bw.fit_conditions(model=models.model_single)
+bw = BayesConditions(df=df, y='isi', treatment='stim', condition='neuron', group='mouse')
+bw.fit(model=models.model_single)
 bw.plot(x='stim:O', independent_axes=True, add_data=True).display()
-bw.facet(column='neuron', row='mouse', width=90,height=120).display()
+BayesWindow.facet(bw, column='neuron', row='mouse', width=90,height=120).display()
 
 
 # ## Detailed steps
@@ -140,11 +111,9 @@ bw.facet(column='neuron', row='mouse', width=90,height=120).display()
 
 # ### 2. Make data slopeplot
 
-# In[15]:
+# In[12]:
 
 
-reload(visualization)
-reload(workflow)
 import altair as alt
 fig_trials=visualization.plot_data_slope_trials(
                                                 x='stim:O', y='log_firing_rate',
@@ -162,7 +131,7 @@ facet=fig_trials.facet
 facet(column='mouse_code')
 
 
-# In[16]:
+# In[13]:
 
 
 visualization.facet(fig_trials,column='mouse_code')
@@ -170,18 +139,16 @@ visualization.facet(fig_trials,column='mouse_code')
 
 # TODO neuron dont work here anymore, only neuron_code
 
-# In[17]:
+# In[14]:
 
 
-reload(visualization)
-reload(workflow)
 fig_trials.properties(width=50,height=50).facet(row='mouse',column='neuron')
 
 
-# In[18]:
+# In[15]:
 
 
 # Resolve scale doesnt work with facets yet:
 #https://github.com/vega/vega-lite/issues/4373#issuecomment-447726094
-#alt.layer(cposter, fig_trials, data=df_both).resolve_scale(y='independent').facet(row='mouse', column='neuron')
+# alt.layer(cposter, fig_trials, data=df_both).resolve_scale(y='independent').facet(row='mouse', column='neuron')
 

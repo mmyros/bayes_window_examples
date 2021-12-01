@@ -33,17 +33,9 @@ window.fit(model=models.model_hierarchical, do_mean_over_trials=True,)
 window.explore_models()
 
 
-# Simple one-way ANOVA:
-
-# In[4]:
-
-
-#window.fit_anova()
-
-
 # ## Linear mixed effects model
 
-# In[7]:
+# In[4]:
 
 
 window = LMERegression(df=df, y='isi', treatment='stim', group='mouse', condition='neuron_x_mouse')
@@ -52,10 +44,18 @@ window.fit_anova()
 window.posterior
 
 
-# In[9]:
+# In[5]:
 
 
 window.plot(x='neuron_x_mouse')
+
+
+# Simple one-way ANOVA:
+
+# In[6]:
+
+
+window.fit_anova()
 
 
 # Of course in reality, neurons don't have this consistent variation in each mouse. This would only be applicable to a priori classes of neurons

@@ -8,9 +8,9 @@
 #       format_version: '1.5'
 #       jupytext_version: 1.10.3
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: PyCharm (jup)
 #     language: python
-#     name: jb1
+#     name: pycharm-d5912792
 # ---
 
 # + [markdown] slideshow={"slide_type": "slide"}

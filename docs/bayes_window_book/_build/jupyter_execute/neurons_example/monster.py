@@ -32,42 +32,11 @@ df, df_monster, index_cols, firing_rates = generate_fake_spikes(n_trials=20,
                                                                overall_stim_response_strength=5)
 
 
-# ## Two-step
-
-# ## Packaged version 1
-# Separate levels
-
-# In[3]:
-
-
-bw = BayesRegression(df=df_monster, y='isi',treatment='stim', condition=['neuron_x_mouse'],
-                          group='mouse', detail='i_trial')
-bw=bw.fit_twostep_by_group(dist_y_step_one='gamma', dist_y='student')
-
-bw.chart
-
-
-# ## Packaged version 2
-# No grouping in first step
-
-# In[5]:
-
-
-bw = BayesRegression(df=df_monster, y='isi',treatment='stim', condition=['neuron_x_mouse'], group='mouse', detail='i_trial')
-bw=bw.fit_twostep(dist_y_step_one='gamma', dist_y='student')
-
-
-# In[6]:
-
-
-bw.chart
-
-
 # ## Step by step
 
 # ### 1. Firing rate
 
-# In[7]:
+# In[ ]:
 
 
 bw1 = BayesConditions(df=df_monster, y='isi',treatment='stim', condition=['neuron_x_mouse','i_trial'], group='mouse')
@@ -77,7 +46,7 @@ bw1.fit(dist_y='gamma');
 
 # ### 2. Regression
 
-# In[8]:
+# In[ ]:
 
 
 bw2 = BayesRegression(df=bw1.posterior['mu_per_condition'],
@@ -93,7 +62,7 @@ bw2.fit(model=models.model_hierarchical,
 bw2.plot_model_quality()
 
 
-# In[9]:
+# In[ ]:
 
 
 bw2.chart
@@ -102,7 +71,7 @@ bw2.chart
 # ## Each neuron separately via SVI
 # ### 1. Firing rate
 
-# In[10]:
+# In[ ]:
 
 
 from tqdm import tqdm
@@ -123,7 +92,7 @@ for i, df_m_n in tqdm(df_monster.groupby(gb)):
 # TODO add sigma to step 2 inputs
 # 
 
-# In[11]:
+# In[ ]:
 
 
 import pandas as pd
@@ -141,7 +110,7 @@ bw2.chart
 
 # ## NUTS 1-step GLM
 
-# In[12]:
+# In[ ]:
 
 
 # Gamma GLM
@@ -158,7 +127,7 @@ bw.fit(model=models.model_hierarchical,
 bw.plot_model_quality()
 
 
-# In[13]:
+# In[ ]:
 
 
 import altair as alt
@@ -324,4 +293,35 @@ render_model(models.model_hier_stim_one_codition, model_args=(1, 1, 1,
                                                     'gamma',
                                                     ),
              render_distributions=True)
+
+
+# ## Two-step
+
+# ## Packaged version 1
+# Separate levels
+
+# In[3]:
+
+
+# bw = BayesRegression(df=df_monster, y='isi',treatment='stim', condition=['neuron_x_mouse'],
+#                           group='mouse', detail='i_trial')
+# bw=bw.fit_twostep_by_group(dist_y_step_one='gamma', dist_y='student')
+
+# bw.chart
+
+
+# ## Packaged version 2
+# No grouping in first step
+
+# In[3]:
+
+
+# bw = BayesRegression(df=df_monster, y='isi',treatment='stim', condition=['neuron_x_mouse'], group='mouse', detail='i_trial')
+# bw=bw.fit_twostep(dist_y_step_one='gamma', dist_y='student')
+
+
+# In[ ]:
+
+
+# bw.chart
 
